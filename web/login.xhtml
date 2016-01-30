@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Welcome in Share Job</title>
+        <h:outputStylesheet name="login.css" library="css" ></h:outputStylesheet>
+    </h:head>
+    <h:body>
+        
+
+        <div class="topArea-text">
+            
+            <h1>Welcome In Our Site . . .</h1>
+            <h3>here you can share or take any job which fit to you .</h3>
+        </div>
+        <div class="all-content">
+            <div class="center-div">
+                <div class="sign-in-left">
+                    <h:form class="sign-in">
+                        <p:outputLabel value="Sign in " style="font-size: 26px; padding-left: 85px"/><br/>
+                        <p:outputLabel value="User Name " style="padding-left: 30px"/>
+                        <p:inputText   style="margin-left: 20px"/><br/>
+
+                        <p:outputLabel value="Password "  style="padding-left: 30px"/>
+                        <p:password  style="margin-left: 30px ;width: 200px;"/>
+                        <p:button value="Sign in" outcome="#{fblogin.FBAuthUrl}"  style="margin-left: 85px ;border-radius: 100%"/>
+
+                    </h:form>
+                </div>
+                <div class="sign-in-right">
+                    <h:form class="fb-sign-in">
+                        <br/>
+                        <p:outputLabel value="Sign in With &nbsp;Facebook "  style="font-size: 26px;"/><br/><br/>
+                        <p:button value="Sign with FaceBook"   />
+                    </h:form>
+                </div>
+            </div>
+            <div class="sign-up">
+                <p:outputLabel value="Sign Up :" style="font-size: 29px;"/><br/>
+                <h:form class="sign-up-form">
+                    <p:inputText  placeholder="First name" style="width: 150px"/>
+                    <p:inputText placeholder="Second name" style="width: 150px"/><br/>
+                    <p:inputText placeholder="E mail or Phone number" style="width: 309px"/><br/>
+                    <p:inputText placeholder="Renter E mail or Phone number" style="width: 309px"/><br/>
+                    <p:inputText placeholder="New password" style="width: 309px"/><br/>
+                    <p:outputLabel value="Birthday"/><br/>
+                    <p:calendar placeholder="Select Date" pattern="dd-mm-yyyy" showOtherMonths="true" yearRange="1950:2016" /> <br/>
+                    <p:selectOneRadio >
+                        <f:selectItem itemLabel="Male"/>
+                        <f:selectItem itemLabel="Fmale"/>
+                    </p:selectOneRadio>
+                    <p:outputLabel value="By clicking Sign Up, you agree to our Terms and that you have 
+                                   read our Data Policy, including our Cookie Use." 
+                                   style="font-size: 11px; width: 100%;"/>
+                   <br/> <p:commandButton value="Sign Up"/>   
+                    
+                </h:form>
+            </div>
+
+
+        </div>
+    </h:body>
+</html>
+

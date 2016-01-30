@@ -1,0 +1,428 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pl="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <f:view contentType="text/html" locale="en">
+        <h:head>
+            <title><ui:insert name="title">#{msg.pagetitle}</ui:insert></title>
+            <h:outputStylesheet name="default.css" library="css" ></h:outputStylesheet>
+
+            <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/icons/icon.png"/>
+            <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+            <!--<meta http-equiv="refresh" content="30"></meta>-->
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8"></meta>
+            <meta name="description" content="share jobs with others ,or find your job ."/>
+            <meta name="keywords" content="share,job,jobs,find,7asbat"/>
+            <meta name="author" content="Ahmed Ali"/>
+
+        </h:head>
+        <h:body>
+            <div id="contanier-all">
+                <!--toparea-->
+                <div id="topAreaDiv">
+                    <div id="topArea"  >
+                        <div class="logo-site" >
+                            <div class="logo-im" style="float: left;">
+                                <a href="dashboard.html" >
+                                    <img alt="home site icon" src="../resources/images/icons/logo.png"/>
+                                </a>
+                            </div>
+                            <span class="sp1" > #{msg.logo}</span>
+                            <span class="sp2" >#{msg.logo2}</span>
+                        </div>
+                        <div class="tSearch">
+                            <h:form  class="autocom" >
+                                <p:autoComplete pl:placeholder="Search ..." />
+                                <h:button outcome="/searchre" styleClass="searchBtn"/>
+                            </h:form>
+                        </div>
+                        <div class="account-pic">
+                            <img src="../resources/images/profile.jpg"/>
+                            <span class="acc-name "> ahmed </span>
+                        </div>
+                        <div class="notificationBar">
+                            <div class="notif-part">
+                                <h:form class="overlaypan">
+                                    <p:commandButton  icon="mess-icon" onclick="ajax()" alt="Messages" title="Messages" class="notifi-button"   id="message-but" type="button"/>
+                                    <p:overlayPanel for="message-but"  hideEvent="mousedown" showEffect="fold" dynamic="true" >
+                                        <div >
+                                           هاى احمد
+                                            <div> 
+                                                <p:commandButton value="press here" />
+                                            </div>
+                                        </div>
+                                    </p:overlayPanel>
+                                    <p:commandButton class="notifi-button" id="message-but3" icon="activ-icon"  type="button" />
+                                    <p:overlayPanel for="message-but3"  hideEvent="mousedown" showEffect="fold" >
+                                        <div >
+                                            hi ahmed
+                                            <div> 
+                                                <h:commandButton value="press here"/>
+                                            </div>
+                                        </div>
+                                    </p:overlayPanel>
+                                    <p:commandButton class="notifi-button" id="message-but1" icon="task-icon"  type="button" />
+                                    <p:overlayPanel for="message-but1"  hideEvent="mousedown" showEffect="fold" >
+                                        <div >
+                                            hi ahmed
+                                            <div> 
+                                                <p:commandButton  value="press here" immediate="true"/>
+                                            </div>
+                                        </div>
+                                    </p:overlayPanel>
+                                    <p:commandButton icon="event-icon" class="notifi-button" id="message-but2"    type="button" />
+                                    <p:overlayPanel for="message-but2"  hideEvent="mousedown" showEffect="fold" >
+                                        <div>
+                                            hi ahmed
+                                            <div> 
+                                                <h:commandButton value="press here"/>
+                                            </div>
+                                        </div>
+                                    </p:overlayPanel>
+                                    <p:commandButton icon="sett-icon" class="notifi-button" id="message-but4"    type="button" />
+                                    <p:overlayPanel  for="message-but4"  hideEvent="mousedown" showEffect="fold">
+                                        <div >
+                                            hi ahmed
+                                            <div> 
+                                                <h:commandButton value="press here"/>
+                                            </div>
+                                        </div>
+                                    </p:overlayPanel>
+                                    <p:commandButton class="notifi-button" icon="logout-icon" id="message-but5"  type="button" />
+                                    <p:overlayPanel for="message-but5"  hideEvent="mousedown" showEffect="fold" styleClass="eventsty">
+                                        <div >
+                                            hi ahmed
+                                            <div> 
+                                                <h:commandButton value="press here"/>
+                                            </div>
+                                        </div>
+                                    </p:overlayPanel>
+                                </h:form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="container" >
+                    <!--side bar design-->
+                    <!--<div class="sidebarDiv>">-->
+
+                    <div class="sidebar">
+
+                        <div class="profile-info">
+                            <img src="../resources/images/ahmed.jpg" alt="Share Job Logo" style=";"/>
+                            <p:link outcome="/userprofile" value="Ahmed Ali" styleClass="prof-link"></p:link>
+                            <p:link outcome="/userprofile" value="Ahmed Ali" styleClass="prof-link"></p:link>
+
+                        </div>
+
+                        <!--                        end logo
+                                                navigation bar under the logo-->
+                        <div class="navigation">
+                            <h:form >
+                                <p:growl autoUpdate="true" />
+
+                                <p:panelMenu >
+                                    <p:submenu label="Profil :">
+                                        <p:menuitem value="Edit Profil"  />
+                                        <p:menuitem value="Apply For Job "  icon="ui-icon-arrowrefresh-1-w" />
+                                    </p:submenu>
+                                    <p:submenu label="My Activities :)" styleClass="has-sub">
+                                        <p:menuitem value="My Dashboard" outcome="/views/home" />
+                                        <p:menuitem value="New Feeds " outcome="/views/feeds" ajax="true" icon="ui-icon-arrowrefresh-1-w" />
+                                    </p:submenu>
+                                    <p:submenu styleClass="has-sub" label="New Posts :">
+                                        <p:menuitem value="Jobs" outcome="/login" icon="images/icons/icon_plus.png"/>
+                                        <p:menuitem value="Adverts"   ajax="false" icon="ui-icon-close"/>
+                                        <p:menuitem value="Friends"   ajax="false" icon="ui-icon-close"/>
+
+                                    </p:submenu>
+                                    <p:submenu styleClass="has-sub" label="Companies and orginaziations :" >
+                                        <p:menuitem value="Add Company" outcome ="/views/feeds" />
+                                        <p:menuitem value="Remove Company" outcome="/views/feeds" icon="ui-icon-document" />
+                                        <p:menuitem value="Reductions" url="http://www.primefaces.org/downloads" icon="ui-icon-arrowthick-1-s" />
+                                        <p:menuitem value="advertisement" url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+                                        <p:menuitem value="Find Jobs" url="http://www.primefaces.org" icon="ui-icon-home" />
+                                    </p:submenu>
+                                    <p:submenu styleClass="has-sub" label="EVents :" >
+                                        <p:menuitem value="Add Event" outcome ="/views/feeds"  />
+                                        <p:menuitem value="Remove Event" outcome="/views/feeds" icon="ui-icon-document" />
+                                        <p:menuitem value="View Events" url="http://www.primefaces.org/downloads" icon="ui-icon-arrowthick-1-s" />
+                                        <p:menuitem value="Related Events" url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+                                    </p:submenu>
+                                    <p:submenu styleClass="has-sub" label="Friends :" >
+                                        <p:menuitem value="view All Friends" outcome ="/views/feeds"  icon="ui-icon-home" />
+                                        <p:menuitem value="My Friends" outcome="/views/feeds" icon="ui-icon-document" />
+                                    </p:submenu>
+
+                                </p:panelMenu>
+
+                            </h:form>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <div class="contenrAreaDiv">
+                        <div class="contenrArea" >
+
+                            <div class="content">
+                                 <ui:insert name="conteudo">
+
+                                <ui:include src="/views/home.xhtml" ></ui:include>
+                            </ui:insert>
+                                                            <div class="right-div">
+                                d1<br/>
+                                d<br/>
+                                d<br/>
+                                d<br/>
+                                d<br/>
+                                d<br/>
+                            </div>
+                            </div>
+
+
+<!--                            <div class="footer">
+
+                                <p>&copy; 2015 Your firm. All rights reserved!</p>
+                            </div>-->
+                        </div>
+                    </div>
+                    <!--adds-chat-->
+                    <div class="adds-chatDiv">
+                        <div class="adds-chat" >
+                            <p:accordionPanel  dynamic="true" multiple="#{fblogin.a}" >
+                                <p:tab title="Adds to see "  closable="true">
+                                    <h:outputText value= "Lorem"/>
+                                    ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                </p:tab>
+                                <p:tab title="Chat with your friends">
+                                    <h:outputText value="Ipsum" />
+                                    ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           v
+                                </p:tab>
+                                <p:tab title="Chat with your friends">
+                                    <h:outputText value="Ipsum" />
+                                    ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                            ...More content for first tab<br/>
+                                     ...More content for first tab<br/>
+                                      ...More content for first tab<br/>
+                                       ...More content for first tab<br/>
+                                        ...More content for first tab<br/>
+                                         ...More content for first tab<br/>
+                                          ...More content for first tab<br/>
+                                           ...More content for first tab<br/>
+                                           
+                                </p:tab>
+                                //any number of tabs
+                            </p:accordionPanel>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </h:body>
+    </f:view>
+</html>
+
